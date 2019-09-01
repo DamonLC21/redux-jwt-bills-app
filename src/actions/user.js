@@ -1,33 +1,34 @@
 import history from '../history'
-import { SUCCESS } from "./types";
+import { SUCCESS } from './types'
+import * as helpers from '../helpers'
 
-const apiUrl = 'http://localhost:3001'
-
-const signUpOptions = (user) => (
-    {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({user: user})
-    }
-)
-
-const signUpRequest = (user, dispatch) => {
-    fetch(`${apiUrl}/api/v1/users`, signUpOptions(user))
+const userRequest = (user, endpoint, dispatch) => {
+    fetch(`${helpers.apiUrl}/api/v1/${endpoint}`, helpers.options(user))
         .then(response => response.json())
         .then(response => {
             localStorage.setItem('token', response.jwt)
             return response.user
         })
         .then(user => {
-                dispatch({type: SUCCESS, user: user})
-                console.log(user)
-                history.push('/')
-            }
-        )
+            dispatch({ type: SUCCESS, user: user })
+            history.push('/')
+        })
 }
 
-export const userActions = { 
-    signUpRequest
+const validate = (dispatch) => {
+    const options = {
+        method: 'GET',
+        headers: helpers.authHeader()
+    }
+
+    return fetch(`${helpers.apiUrl}/api/v1/profile`, options)
+        .then(response => response.json())
+        .then(response => {
+            dispatch({ type: SUCCESS, user: response.user })
+        })
+}
+
+export const userActions = {
+    userRequest,
+    validate
 }

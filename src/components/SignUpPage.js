@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { userActions } from '../actions'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { userActions } from '../actions'
 
 class SignUpPage extends Component {
 
@@ -36,7 +37,7 @@ class SignUpPage extends Component {
         
         return (
             <div>
-                <form className='signup-form' onSubmit={this.handleSubmit}>
+                <form className='styled-form' onSubmit={this.handleSubmit}>
                     <h1>Sign Up for <span id='trackr'>Trackr</span></h1>
                     <label htmlFor='username'>Username</label>
                     <input 
@@ -84,6 +85,7 @@ class SignUpPage extends Component {
                         onChange={this.handleChange}
                     />
                     <input type='submit' id='submit-button' value='Sign Me Up!' />
+                    <p>Already a member ?  <Link to="/login">Log In</Link></p>
                 </form>
             </div>
         )
@@ -92,7 +94,7 @@ class SignUpPage extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    signUp: (user) => userActions.signUpRequest(user, dispatch)
+    signUp: (user) => userActions.userRequest(user, 'users', dispatch)
 })
 
 export default connect(null, mapDispatchToProps)(SignUpPage)

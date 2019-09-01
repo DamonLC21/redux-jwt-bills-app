@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 body {
- background: linear-gradient(120grad, rgb(10, 189, 177), rgb(91, 205, 218));
+ background: linear-gradient(120grad, rgb(10, 189, 177), rgb(104, 241, 205));
  min-height: 100vh;
  font-family: 'Roboto', sans-serif;
 }
@@ -11,7 +11,7 @@ body {
   color: rgb(10, 189, 177);
 }
 
-.signup-form {
+.styled-form {
   background-color: white;
   margin: auto;
   margin-top: 10%;
@@ -25,15 +25,16 @@ body {
   border-radius: 5px;
 }
 
-.signup-form input {
+.styled-form input {
   height: 30px;
+  font-size: 16px;
   border: 2px solid rgb(126, 126, 126);
   border-radius: 2px;
   padding: 3px 0px 3px 3px;
   transition: 0.2s;
 }
 
-.signup-form input:focus, input:hover{
+.styled-form input:focus, input:hover{
   outline: none;
   border: 1px solid rgb(10, 189, 177);
   box-shadow: 0 0 5px rgb(10, 189, 177);
