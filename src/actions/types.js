@@ -1,1 +1,5 @@
 export const SUCCESS = 'SUCCESS'
+export const LOGOUT = 'LOGOUT'
+export const BILL_ADDED = 'BILL_ADDED'
+export const BILL_DELETED = 'BILL_DELETED'
+export const BILL_PAID = 'BILL_PAID'

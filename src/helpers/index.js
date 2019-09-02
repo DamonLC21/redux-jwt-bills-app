@@ -1,6 +1,19 @@
 export const apiUrl = 'http://localhost:3001'
 
-export const options = (user) => (
+export const authHeader = () => {
+    let token = localStorage.getItem('token')
+    return token ? { 'Authorization': `Bearer ${token}` } : {}
+}
+
+export const validationHeader = { ...{'Content-Type': 'application/json'}, ...authHeader() }
+
+export const billOptions = (bill) => ({
+    method: 'POST',
+    headers: validationHeader,
+    body: JSON.stringify(bill)
+})
+
+export const userOptions = (user) => (
     {
         method: 'POST',
         headers: {
@@ -10,7 +23,7 @@ export const options = (user) => (
     }
 )
 
-export const authHeader = () => {
-    let token = localStorage.getItem('token')
-    return token ? { 'Authorization': `Bearer ${token}` } : {}
+export const handleResponse = (response) => {
+    return response.json()
 }
+

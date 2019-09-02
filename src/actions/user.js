@@ -1,10 +1,10 @@
 import history from '../history'
-import { SUCCESS } from './types'
+import { SUCCESS, LOGOUT } from './types'
 import * as helpers from '../helpers'
 
 const userRequest = (user, endpoint, dispatch) => {
-    fetch(`${helpers.apiUrl}/api/v1/${endpoint}`, helpers.options(user))
-        .then(response => response.json())
+    fetch(`${helpers.apiUrl}/api/v1/${endpoint}`, helpers.userOptions(user))
+        .then(helpers.handleResponse)
         .then(response => {
             localStorage.setItem('token', response.jwt)
             return response.user
@@ -22,13 +22,19 @@ const validate = (dispatch) => {
     }
 
     return fetch(`${helpers.apiUrl}/api/v1/profile`, options)
-        .then(response => response.json())
+        .then(helpers.handleResponse)
         .then(response => {
             dispatch({ type: SUCCESS, user: response.user })
         })
 }
 
+const logOut = (dispatch) => {
+    localStorage.removeItem('token')
+    dispatch({type: LOGOUT})
+}
+
 export const userActions = {
     userRequest,
-    validate
+    validate,
+    logOut
 }

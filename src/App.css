@@ -1,14 +1,235 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 body {
- background: linear-gradient(120grad, rgb(10, 189, 177), rgb(104, 241, 205));
+ background: linear-gradient(120grad, rgb(10, 189, 82), rgb(35, 187, 147));
  min-height: 100vh;
  font-family: 'Roboto', sans-serif;
 }
 
-
 #trackr {
-  color: rgb(10, 189, 177);
+  color: rgb(10, 189, 82);
+}
+
+ul {
+  list-style: none;
+}
+
+.logo {
+	margin: 0;
+	font-size: 1.6em;
+}
+
+.main-nav {
+  margin-top: 7px;
+  display: flex;
+  color: #34495e;
+	font-size: 1.15em;
+}
+
+.logo a,
+.main-nav a {
+  padding-top: 10px;
+	padding-left: 40px ;
+	text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.main-nav a:hover {
+	color: #718daa;
+}
+
+.header {
+  display: flex;
+  padding-bottom: .5em;
+  padding-left: 160px;
+  padding-right: 180px;
+	box-shadow: 5px 5px 15px black;
+  background-color:  rgb(10, 189, 82);
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.dashboard {
+  background-color: white;
+  min-height: 100vh;
+  padding: 20px;
+  font-weight: 300;
+}
+
+#dash-top {
+  background-color: #333;
+  height: 35px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#dash-top p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  color:rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+#bills-header {
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 20px;
+  margin-block-end: 0;
+}
+
+#mark-as-paid {
+  width: 100px;
+  height: 30px;
+  background-color: rgb(10, 189, 82);
+  border: none;
+  color: white;
+  transition: 0.4s;
+  margin-bottom: 10px;
+}
+
+#mark-as-paid:hover{
+  background-color: rgb(157, 233, 172);
+  color: black;
+}
+
+#remove-bill {
+  width: 100px;
+  height: 30px;
+  border: 1px solid rgb(235, 45, 45) ;
+  color: rgb(235, 45, 45);
+  transition: 0.4s;
+}
+
+#remove-bill:hover{
+  background-color: rgb(233, 168, 157);
+  color: black;
+}
+
+.bills-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+}
+
+.bills {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 500px;
+  overflow: scroll;
+  border: 1px solid gainsboro;
+  margin: 30px;
+  padding: 0px 40px 30px 40px;
+}
+
+.next-due {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: max-content;
+  overflow: scroll;
+  box-shadow: 5px 5px 10px rgb(201, 201, 201);
+  margin: 30px;
+  padding: 0px 40px 30px 40px;
+
+}
+
+#next-due-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 20px;
+  margin-block-end: 0;
+  color: red;
+}
+
+#next-due-header h4{
+  margin-block-end: 0;
+}
+
+.next-due #price {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  color: red;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.due {
+  color: rgb(250, 159, 2);
+  font-weight: 700;
+}
+
+.paid {
+  color: green;
+}
+
+.bill-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gainsboro;
+  color: #333;
+}
+
+.bill-card:hover {
+  box-shadow: 0 8px 6px -8px rgb(140, 140, 140);
+}
+
+.bill-card p {
+  margin-block-start: .3em;
+  margin-block-end: .3em;
+}
+
+.bill-details-left {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+
+.bill-details-right {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+#bill-name {
+  font-weight: 500;
+  color: rgb(79, 79, 79);
+}
+
+.bill-form { 
+  width: 1000px;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.bill-form label {
+  font-weight: 700;
+}
+
+.bill-form input {
+  height: 20px;
+  font-size: 16px;
+  border: 2px solid rgb(126, 126, 126);
+  border-radius: 2px;
+  padding: 3px 0px 3px 3px;
+  transition: 0.2s;
+  margin: 15px;
+}
+
+.bill-form input[type='submit'] {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
 }
 
 .styled-form {
@@ -36,18 +257,18 @@ body {
 
 .styled-form input:focus, input:hover{
   outline: none;
-  border: 1px solid rgb(10, 189, 177);
-  box-shadow: 0 0 5px rgb(10, 189, 177);
+  border: 1px solid rgb(10, 189, 82);
+  box-shadow: 0 0 5px rgb(10, 189, 82);
 }
 
 #submit-button {
-  background-color: rgb(10, 189, 177);
+  background-color: rgb(10, 189, 82);
   border: none;
   color: white;
   transition: 0.4s;
 }
 
 #submit-button:hover{
-  background-color: rgb(157, 233, 228);
+  background-color: rgb(157, 233, 172);
   color: black;
 }

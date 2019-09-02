@@ -10,6 +10,10 @@ class LoginPage extends React.Component {
         password: ''
     }
 
+    componentDidMount(){
+        this.props.logOut()
+    }
+
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.login(this.state)
@@ -57,7 +61,9 @@ class LoginPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-   login: (user) => userActions.userRequest(user, 'login', dispatch)
+   login: (user) => userActions.userRequest(user, 'login', dispatch),
+   logOut: () => userActions.logOut(dispatch)
 })
 
 export default connect(null, mapDispatchToProps)(LoginPage)
+
