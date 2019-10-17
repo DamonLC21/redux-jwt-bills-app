@@ -1,4 +1,4 @@
-export const apiUrl = 'http://localhost:3001'
+export const apiUrl = 'http://localhost:3000'
 
 export const authHeader = () => {
     let token = localStorage.getItem('token')

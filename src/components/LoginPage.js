@@ -10,6 +10,7 @@ class LoginPage extends React.Component {
         password: ''
     }
 
+
     componentDidMount(){
         this.props.logOut()
     }

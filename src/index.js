@@ -14,3 +14,5 @@ ReactDOM.render(
 )
 
 serviceWorker.unregister();
+
+store.subscribe(() => console.log(store.getState()))

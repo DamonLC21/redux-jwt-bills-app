@@ -52,6 +52,18 @@ ul {
   height: 50px;
 }
 
+#loading {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -70px 0 0 -170px;
+}
+
 .dashboard {
   background-color: white;
   min-height: 100vh;

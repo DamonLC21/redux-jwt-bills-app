@@ -8,7 +8,10 @@ export const bills = (state=[], action) => {
             return action.bills
         case 'BILL_PAID':
             return action.bills
+        case 'LOGOUT': 
+            return []
         default:
             return state
     }
 }
+

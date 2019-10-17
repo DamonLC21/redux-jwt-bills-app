@@ -7,7 +7,7 @@ import { PrivateRoute } from './components/PrivateRoute';
 import NavBar from './components/NavBar'
 import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage'
-import Dashboard from './components/Dashboard';
+
 
 
 function App({user}) {
@@ -16,7 +16,7 @@ function App({user}) {
       <Router history={history}>
         { user ? <NavBar /> : null}
         { user ? topDash(user) : null}
-        <PrivateRoute exact path="/" component={Dashboard}/>
+        <PrivateRoute exact path="/" />
         <Route path='/login' render={(props) => <LoginPage {...props} />} />
         <Route path='/signup' render={(props) => <SignUpPage {...props} />} />
       </Router>

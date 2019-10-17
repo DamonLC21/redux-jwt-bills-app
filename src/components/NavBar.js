@@ -2,8 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { userActions } from '../actions'
 import { Link } from 'react-router-dom'
+import {useState, useEffect, useRef} from 'react'
+
 
 function NavBar({user}) {
+
     return (
         <header className='header'>
             <h1 className="logo">

@@ -1,8 +1,9 @@
+import {SUCCESS, LOGOUT} from '../actions/types'
 export const user = (state = null, action) => {
     switch (action.type){
-        case 'SUCCESS':
+        case SUCCESS:
             return action.user
-        case 'LOGOUT':
+        case LOGOUT:
             return null
         default:
             return state

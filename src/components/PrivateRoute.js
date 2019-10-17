@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import Dashboard from './Dashboard';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
+export const PrivateRoute = ({ ...rest }) => (
     <Route {...rest} render={props => (
         localStorage.getItem('token')
-            ? <Component {...props} />
+            ? <Dashboard {...props} />
             : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     )} />
 )

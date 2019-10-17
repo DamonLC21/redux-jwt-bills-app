@@ -12,7 +12,14 @@ class Dashboard extends Component {
     }
 
     loadingDashboard = () => (
-        <h1>Loading</h1>
+        <div className='dashboard'>
+            <div className='bills-container'>
+                <section className='bills'>
+                </section>
+                <section className='next-due'>
+                </section>
+            </div>
+        </div>
     )
 
     showBills = () => (
@@ -39,7 +46,7 @@ class Dashboard extends Component {
                         </h4>
                     </div>
                         <h2>{nextDue.name}</h2>
-                        <p id='price'>${nextDue.amount.toFixed(2)}</p>
+                        <p id='price'>${nextDue.amount ? nextDue.amount.toFixed(2) : null}</p>
                     </section>
                 </div>
             </div>
@@ -49,10 +56,10 @@ class Dashboard extends Component {
     nextDue = () => {
         const today = new Date()
         return this.dueBills().reduce((closestBill, currentBill) => {
-            return (new Date(closestBill.due) - today < new Date(currentBill.due) - today)
+            return ((new Date(closestBill.due) - today) < (new Date(currentBill.due) - today))
                 ? closestBill 
                 : currentBill
-        })
+        }, {})
     }
 
     dueBills = () => {
